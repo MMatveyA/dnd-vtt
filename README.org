@@ -93,10 +93,10 @@ sudo apt update
 sudo apt install build-essential cmake qt6-base-dev qt6-declarative-dev
 #+end_src
 *** Windows
-1. Установите [Qt Online Installer](https://www.qt.io/download) и выберите Qt 6.5 + MinGW или MSVC.
-2. Добавьте путь к `qmake` в `PATH`.
-3. Установите [CMake](https://cmake.org/download/) (версия ≥ 3.16).
-4. (Опционально) Установите `windeployqt` для деплоя приложения.
+1. Установите [[https://www.qt.io/download][Qt Online Installer]] и выберите Qt 6.5 + MinGW или MSVC.
+2. Установите [[https://cmake.org/download/][CMake]] (версия ≥ 3.21).
+3. Добавьте путь к =cmake= в =PATH=.
+4. (Опционально) Установите =windeployqt= для деплоя приложения.
 ** Сборка
 #+begin_src shell
 cmake -S . -B build
