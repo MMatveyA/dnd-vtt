@@ -76,3 +76,30 @@
 - [ ] Сетевой код [0/2]
   - [ ] Установление связи между устройствами
   - [ ] Передача данных между устройствами
+
+* Сборка
+** Общие требования
+- *C++17 компилятор*
+  - GCC ≥ 9, Clang ≥ 10, MSVC ≥ 2019
+- *CMake* ≥ 3.16
+- *Qt 6.5* (с компонентами: Quick, Quick Controls)
+*** Mac OS
+#+begin_src shell
+brew install qt cmake llvm
+#+end_src
+*** Linux
+#+begin_src shell
+sudo apt update
+sudo apt install build-essential cmake qt6-base-dev qt6-declarative-dev
+#+end_src
+*** Windows
+1. Установите [Qt Online Installer](https://www.qt.io/download) и выберите Qt 6.5 + MinGW или MSVC.
+2. Добавьте путь к `qmake` в `PATH`.
+3. Установите [CMake](https://cmake.org/download/) (версия ≥ 3.16).
+4. (Опционально) Установите `windeployqt` для деплоя приложения.
+** Сборка
+#+begin_src shell
+cmake -S . -B build
+cmake --build build
+./build/src/dnd-vtt
+#+end_src
