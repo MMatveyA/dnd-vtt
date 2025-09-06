@@ -98,9 +98,48 @@ sudo apt install build-essential cmake qt6-base-dev qt6-declarative-dev
 3. Добавьте путь к =cmake= в =PATH=.
 4. (Опционально) Установите =windeployqt= для деплоя приложения.
 ** Сборка
+*** Ubuntu
 #+begin_src shell
 cmake -S . -B build
 cmake --build build
+*** NixOS
+**** Сборка пакета
+В директории репозитория
+#+begin_src shell
+nix build
+**** Установка пакета
+flake.nix
+#+begin_src nix
+{
+  inputs = {
+    dnd-vtt = {
+      url = "github:fisuri/dnd-vtt?ref=refs/heads/feature/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  }
+}
+Системная установка
+#+begin_src nix
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
+      inputs.dnd-vtt.packages.${system}.default
+  ];
+}
+Home Manager
+#+begin_src nix
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [
+      inputs.dnd-vtt.packages.${system}.default
+  ];
+}
 #+end_src
 ** Запуск
 #+begin_src shell
