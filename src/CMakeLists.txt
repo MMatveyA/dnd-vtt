@@ -1,12 +1,14 @@
 set(app_options)
 
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
 if(APPLE)
     list(APPEND app_options MACOSX_BUNDLE)
 elseif(WIN32)
     list(APPEND app_options WIN32)
 endif()
+endif()
 
-list(APPEND app_options main.cpp resources.qrc)
+list(APPEND app_options main.cpp helplogic.cpp mapslogic.cpp screenmanager.cpp resources.qrc)
 
 qt_add_executable(${PROJECT_NAME} ${app_options})
 

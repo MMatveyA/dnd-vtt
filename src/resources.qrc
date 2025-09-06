@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/qml">
         <file alias="main">../qml/Main.qml</file>
+        <file alias="home">../qml/HomeScreen.qml</file>
+        <file alias="maps">../qml/MapsScreen.qml</file>
+        <file alias="help">../qml/HelpScreen.qml</file>
     </qresource>
 </RCC>
