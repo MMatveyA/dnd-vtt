@@ -115,7 +115,7 @@ flake.nix
 {
   inputs = {
     dnd-vtt = {
-      url = "github:fisuri/dnd-vtt?ref=refs/heads/feature/nix";
+      url = "github:MMatveyA/dnd-vtt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   }
