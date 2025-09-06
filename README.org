@@ -102,11 +102,13 @@ sudo apt install build-essential cmake qt6-base-dev qt6-declarative-dev
 #+begin_src shell
 cmake -S . -B build
 cmake --build build
+#+end_src
 *** NixOS
 **** Сборка пакета
 В директории репозитория
 #+begin_src shell
 nix build
+#+end_src
 **** Установка пакета
 flake.nix
 #+begin_src nix
@@ -118,6 +120,7 @@ flake.nix
     };
   }
 }
+#+end_src
 Системная установка
 #+begin_src nix
 {
@@ -129,6 +132,7 @@ flake.nix
       inputs.dnd-vtt.packages.${system}.default
   ];
 }
+#+end_src
 Home Manager
 #+begin_src nix
 {
