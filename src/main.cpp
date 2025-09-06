@@ -1,6 +1,6 @@
-#include "helplogic.h"
-#include "mapslogic.h"
-#include "screenmanager.h"
+#include "ui/helplogic.h"
+#include "ui/mapslogic.h"
+#include "ui/screenmanager.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>

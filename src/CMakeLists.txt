@@ -8,7 +8,7 @@ elseif(WIN32)
 endif()
 endif()
 
-list(APPEND app_options main.cpp helplogic.cpp mapslogic.cpp screenmanager.cpp resources.qrc)
+list(APPEND app_options main.cpp ui/helplogic.cpp ui/mapslogic.cpp ui/screenmanager.cpp resources.qrc)
 
 qt_add_executable(${PROJECT_NAME} ${app_options})
 
