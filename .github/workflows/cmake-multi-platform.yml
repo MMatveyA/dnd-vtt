@@ -74,5 +74,5 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ runner.os }}-${{ matrix.build_type }}-binaries
+          name: ${{ runner.os }}-${{ runner.cpp_compiler }}-${{ matrix.build_type }}-binaries
           path: ${{ steps.strings.outputs.build-output-dir }}
