@@ -1,25 +1,40 @@
 {
+  self,
   lib,
   pkgs,
   ...
 }:
-pkgs.stdenv.mkDerivation {
-  name = "dnd-vtt";
-  src = ./.;
+pkgs.stdenv.mkDerivation (finalAttrs: {
+  pname = "dnd-vtt";
+  version = "0.1";
+
+  src = self;
+
+  doCheck = true;
 
   nativeBuildInputs = with pkgs; [
     cmake
-    qt6.full
+    qt6.qtbase
+    qt6.qtquick3d
+    qt6.wrapQtAppsHook
   ];
 
   buildInputs = with pkgs; [
-    qt6.full
+    qt6.qtbase
+    qt6.qtquick3d
+    qt6.wrapQtAppsHook
   ];
 
-  meta = with lib; {
+  installPhase = ''
+    mkdir -p $out/bin
+    cp src/${finalAttrs.pname} $out/bin
+  '';
+
+  meta = {
     description = "DnD Virtual TableTop";
     homepage = "https://github.com/MMatveyA/dnd-vtt";
-    license = licenses.lgpl3;
-    platforms = platforms.linux;
+    mainProgram = "dnd-vtt";
+    license = lib.licenses.lgpl3;
+    platforms = lib.platforms.linux;
   };
-}
+})

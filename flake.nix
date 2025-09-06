@@ -1,8 +1,6 @@
 {
-  description = "A very basic flake";
-
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -15,7 +13,14 @@
       system: let
         pkgs = import nixpkgs {inherit system;};
       in {
-        packages.default = pkgs.callPackage ./default.nix {};
+        apps = {
+          dnd-vtt = {
+            type = "app";
+            program = "${pkgs.lib.getExe self.packages.${system}.default}";
+          };
+        };
+
+        packages.default = pkgs.callPackage ./default.nix {inherit self;};
 
         formatter = pkgs.alejandra;
 
