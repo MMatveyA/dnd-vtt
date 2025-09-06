@@ -101,5 +101,8 @@ sudo apt install build-essential cmake qt6-base-dev qt6-declarative-dev
 #+begin_src shell
 cmake -S . -B build
 cmake --build build
+#+end_src
+** Запуск
+#+begin_src shell
 ./build/src/dnd-vtt
 #+end_src

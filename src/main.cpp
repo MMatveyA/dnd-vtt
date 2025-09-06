@@ -1,11 +1,14 @@
+#include "screenmanager.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
-
     QQmlApplicationEngine engine;
-    engine.load(QUrl("qrc:/ui/main"));
+
+    ScreenManager screen_manager(&engine);
+
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main")));
     if (engine.rootObjects().isEmpty())
         return -1;
 
