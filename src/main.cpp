@@ -1,3 +1,20 @@
+/**
+ * @file main.cpp
+ * @brief Точка входа в приложение DnD VTT.
+ *
+ * Здесь создаётся QGuiApplication и настраивается QQmlApplicationEngine.
+ * Подключаются основные модули приложения:
+ * - ScreenManager для управления QML-экранами;
+ * - MapsLogic для управления пользовательскими картами;
+ * - HelpLogic для отображения справочной информации.
+ *
+ * В QML-контекст пробрасываются объекты screenManager, mapsLogic и helpLogic,
+ * чтобы их можно было использовать в интерфейсе.
+ *
+ * После загрузки главного QML-файла (qrc:/qml/main) приложение переходит в
+ * основной цикл событий.
+ */
+
 #include "ui/helplogic.h"
 #include "ui/mapslogic.h"
 #include "ui/screenmanager.h"
