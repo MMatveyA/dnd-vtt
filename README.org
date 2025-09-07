@@ -118,10 +118,10 @@ cmake -S . -B build
 cmake --build build --target doc
 #+end_src
 
-Сгенерированная документация появится в папке =docs/html= и =docs/rtf=. Чтобы открыть веб-версию в браузере:
+Сгенерированная документация появится в папке =build/doc/html= и =build/doc/rtf=. Чтобы открыть веб-версию в браузере:
 
 #+begin_src shell
-xdg-open docs/html/index.html   # Linux
-open docs/html/index.html       # macOS
-start docs/html/index.html      # Windows
+xdg-open build/doc/html/index.html   # Linux
+open build/doc/html/index.html       # macOS
+start build/doc/html/index.html      # Windows
 #+end_src
