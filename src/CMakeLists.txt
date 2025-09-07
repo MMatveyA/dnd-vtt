@@ -1,11 +1,11 @@
 # --- Опции приложения ---
 set(app_sources main.cpp ui/helplogic.cpp ui/mapslogic.cpp ui/screenmanager.cpp
-                resources.qrc)
+                ui/gamelogic.cpp resources.qrc)
 
 # --- Создаём библиотеку с исходниками проекта ---
 # Основной код вынесем в библиотеку, чтобы её могли использовать тесты
 add_library(${LIB_NAME} STATIC ui/helplogic.cpp ui/mapslogic.cpp
-                               ui/screenmanager.cpp)
+                               ui/screenmanager.cpp ui/gamelogic.cpp)
 
 target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/ui)
 target_link_libraries(${LIB_NAME} PRIVATE Qt6::Quick)

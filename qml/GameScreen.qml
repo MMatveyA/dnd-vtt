@@ -8,7 +8,7 @@ Item {
 
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Справка"
+            text: "Здесь будет игра"
         }
 
         Button {

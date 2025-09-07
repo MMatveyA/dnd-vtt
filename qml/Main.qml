@@ -13,6 +13,7 @@ ApplicationWindow {
         id: stackView
 
         anchors.fill: parent
+        anchors.horizontalCenter: parent.horizontalCenter
         initialItem: screenManager.getScreenQml("Home")
     }
 }

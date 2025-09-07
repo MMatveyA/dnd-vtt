@@ -7,12 +7,21 @@ Item {
         spacing: 20
 
         Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Игра"
+
+            onClicked: stackView.push(screenManager.getScreenQml("Game"))
+        }
+
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
             text: "Мои карты"
 
             onClicked: stackView.push(screenManager.getScreenQml("Maps"))
         }
 
         Button {
+            anchors.horizontalCenter: parent.horizontalCenter
             text: "Справка"
 
             onClicked: stackView.push(screenManager.getScreenQml("Help"))

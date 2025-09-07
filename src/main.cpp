@@ -15,6 +15,7 @@
  * основной цикл событий.
  */
 
+#include "ui/gamelogic.h"
 #include "ui/helplogic.h"
 #include "ui/mapslogic.h"
 #include "ui/screenmanager.h"
@@ -28,16 +29,19 @@ int main(int argc, char *argv[]) {
 
     ScreenManager screen_manager(&engine);
 
+    screen_manager.registerScreen("Game", "qrc:/qml/game");
+    screen_manager.registerScreen("Help", "qrc:/qml/help");
     screen_manager.registerScreen("Home", "qrc:/qml/home");
     screen_manager.registerScreen("Maps", "qrc:/qml/maps");
-    screen_manager.registerScreen("Help", "qrc:/qml/help");
 
+    GameLogic game_logic;
     MapsLogic maps_logic;
     HelpLogic help_logic;
 
     engine.rootContext()->setContextProperty("screenManager", &screen_manager);
     engine.rootContext()->setContextProperty("mapsLogic", &maps_logic);
     engine.rootContext()->setContextProperty("helpLogic", &help_logic);
+    engine.rootContext()->setContextProperty("gameLogic", &game_logic);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main")));
     if (engine.rootObjects().isEmpty())
