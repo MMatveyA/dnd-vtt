@@ -14,20 +14,17 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = with pkgs; [
     cmake
-    qt6.qtbase
-    qt6.qtquick3d
     qt6.wrapQtAppsHook
   ];
 
   buildInputs = with pkgs; [
     qt6.qtbase
     qt6.qtquick3d
-    qt6.wrapQtAppsHook
   ];
 
   installPhase = ''
     mkdir -p $out/bin
-    cp src/${finalAttrs.pname} $out/bin
+    cmake --install . --prefix $out
   '';
 
   meta = {
@@ -35,6 +32,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/MMatveyA/dnd-vtt";
     mainProgram = "dnd-vtt";
     license = lib.licenses.lgpl3;
-    platforms = lib.platforms.linux;
+    platforms = lib.platforms.linux ++ lib.platforms.darwin;
   };
 })
