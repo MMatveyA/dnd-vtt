@@ -112,3 +112,16 @@ cmake -S . -B build -DBUILD_TESTING=ON
 cmake --build build
 ctest --test-dir build
 #+end_src
+** Документация
+#+begin_src shell
+cmake -S . -B build
+cmake --build build --target doc
+#+end_src
+
+Сгенерированная документация появится в папке =docs/html= и =docs/rtf=. Чтобы открыть веб-версию в браузере:
+
+#+begin_src shell
+xdg-open docs/html/index.html   # Linux
+open docs/html/index.html       # macOS
+start docs/html/index.html      # Windows
+#+end_src
