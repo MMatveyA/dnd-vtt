@@ -106,3 +106,9 @@ cmake --build build
 #+begin_src shell
 ./build/src/dnd-vtt
 #+end_src
+** Тестирование
+#+begin_src shell
+cmake -S . -B build -DBUILD_TESTING=ON
+cmake --build build
+ctest --test-dir build
+#+end_src
